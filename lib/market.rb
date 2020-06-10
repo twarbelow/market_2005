@@ -1,9 +1,10 @@
 class Market
-  attr_reader :name, :vendors, :total_inventory
+  attr_reader :name, :vendors, :all_inventory
 
   def initialize(name)
     @name = name
     @vendors = []
+    @all_inventory = Hash.new(0)
   end
 
   def add_vendor(vendor)
@@ -19,17 +20,17 @@ class Market
   end
 
   def total_inventory
-    # hash of item object keys each with a value of a hash with quantity and vendors
-    total_inventory = Hash.new(0)
     vendors.each do |vendor|
       vendor.inventory.each do |item, quantity|
-        total_inventory[item] = {quantity: 0, vendors: []} if !total_inventory.has_key?(item)
-        total_inventory[item][:quantity] += quantity
-        total_inventory[item][:vendors] << vendor
+        @all_inventory[item] = {quantity: 0, vendors: []} if !all_inventory.has_key?(item)
+        @all_inventory[item][:quantity] += quantity
+        @all_inventory[item][:vendors] << vendor
       end
     end
+    all_inventory
+  end
 
-
+  def overstocked_items
     total_inventory
   end
 end
