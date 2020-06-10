@@ -21,7 +21,7 @@ There are **4** Possible Points in Iteration 1:
 
 The Market will need to keep track of its Vendors and their Items. Each Vendor will be able to report its total inventory, stock items, and return the quantity of items. Any item not in stock should return `0` by default.
 
-Use TDD to create a `Vendor` class that responds to the following interaction pattern:
+Use TDD to create `Item` and `Vendor` classes that responds to the following interaction pattern:
 
 ```ruby
 pry(main)> require './lib/item'
@@ -90,7 +90,7 @@ A Market is responsible for keeping track of Vendors. It should have a method ca
 
 Additionally, the Market should have a method called `vendors_that_sell` that takes an argument of an item represented as a String. It will return a list of Vendors that have that item in stock.
 
-Use TDD to create a `Market` class that responds to the following interaction pattern:
+Use TDD to create a `Market` class and update your `Vendor` class to responds to the following interaction pattern:
 
 ```ruby
 pry(main)> require './lib/item'
