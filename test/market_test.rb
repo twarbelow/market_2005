@@ -58,6 +58,7 @@ class MarketTest < MiniTest::Test
   end
 
   def test_is_knows_overstocked_items
+    skip
     @vendor3.stock(@item3, 10)
     @market.add_vendor(@vendor1)
     @market.add_vendor(@vendor2)
